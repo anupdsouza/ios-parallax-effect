@@ -12,12 +12,11 @@ struct MoviePosterView: View {
     var body: some View {
         Image(imageName)
             .resizable()
-            .frame(width: 200, height: 300)
-            .clipShape(RoundedRectangle(cornerRadius: 25))
-        
+            .frame(width: 300, height: 450)
+            .clipShape(RoundedRectangle(cornerRadius: 32))
     }
 }
 
 #Preview {
-    MoviePosterView(imageName: "2")
+    MoviePosterView(imageName: "1")
 }
