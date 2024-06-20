@@ -15,21 +15,28 @@ struct ContentView: View {
     private let images = (1...7).map { "\($0)" }
     
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            LazyHStack(spacing: 16) {
-                ForEach(images, id: \.self) { name in
-                    MoviePosterView(imageName: name)
-                        .scrollTransition(axis: .horizontal) { content, phase in
-                            content.offset(x: phase.value * -250)
+        GeometryReader { geometry in
+            let width = geometry.size.width
+            
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(spacing: 22) {
+                    ForEach(images, id: \.self) { name in
+                        ZStack {
+                            MoviePosterView(imageName: name)
+                                .frame(width: width, height: 1.25 * width)
+                                .scrollTransition(.interactive, axis: .horizontal) { content, phase in
+                                    content.offset(x: phase.value * -(width/2))
+                                }
                         }
                         .containerRelativeFrame(.horizontal)
                         .clipShape(RoundedRectangle(cornerRadius: 32))
+                    }
                 }
+                .scrollTargetLayout()
             }
-            .scrollTargetLayout()
+            .contentMargins(.horizontal, 44)
+            .scrollTargetBehavior(.paging)
         }
-        .contentMargins(.horizontal, 32)
-        .scrollTargetBehavior(.paging)
     }
 }
 

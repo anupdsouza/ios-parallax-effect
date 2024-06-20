@@ -16,7 +16,7 @@ struct MoviePosterView: View {
     var body: some View {
         Image(imageName)
             .resizable()
-            .frame(width: 300, height: 450)
+            .aspectRatio(contentMode: .fill)
             .clipShape(RoundedRectangle(cornerRadius: 32))
     }
 }
