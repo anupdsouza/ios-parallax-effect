@@ -1,2 +1,2 @@
-# ios-18-parallax-effect
+# ios-parallax-effect
 Repository for the parallax effect demo
