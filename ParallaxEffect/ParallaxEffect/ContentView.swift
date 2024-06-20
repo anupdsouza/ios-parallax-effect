@@ -30,6 +30,7 @@ struct ContentView: View {
                         }
                         .containerRelativeFrame(.horizontal)
                         .clipShape(RoundedRectangle(cornerRadius: 32))
+                        .shadow(color: .black.opacity(0.5), radius: 5, x: 0, y: 5)
                     }
                 }
                 .scrollTargetLayout()
