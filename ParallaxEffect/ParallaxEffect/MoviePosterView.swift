@@ -17,9 +17,6 @@ struct MoviePosterView: View {
         Image(imageName)
             .resizable()
             .aspectRatio(contentMode: .fill)
-            .overlay {
-                LinearGradient(colors: [.clear, .clear, .black], startPoint: .top, endPoint: .bottom)
-            }
             .clipShape(RoundedRectangle(cornerRadius: 32))
     }
 }
