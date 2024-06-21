@@ -17,6 +17,7 @@ struct ContentView: View {
     var body: some View {
         GeometryReader { geometry in
             let width = geometry.size.width
+            let offset = -width/2
             
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 22) {
@@ -25,7 +26,7 @@ struct ContentView: View {
                             MoviePosterView(imageName: name)
                                 .frame(width: width, height: 1.25 * width)
                                 .scrollTransition(.interactive, axis: .horizontal) { content, phase in
-                                    content.offset(x: phase.value * -(width/2))
+                                    content.offset(x: phase.value * offset)
                                 }
                         }
                         .containerRelativeFrame(.horizontal)
