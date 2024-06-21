@@ -22,6 +22,7 @@ struct ContentView: View {
         "Avengers: Infinity War",
         "Avengers: Endgame"
     ]
+    @Environment(\.colorScheme) private var colorScheme
     
     var body: some View {
         
@@ -54,13 +55,12 @@ struct ContentView: View {
                                             .font(.title)
                                             .bold()
                                             .foregroundStyle(.white)
-                                            .frame(width: width)
                                             .padding(.bottom, 44)
                                     }
                             }
                             .containerRelativeFrame(.horizontal)
                             .clipShape(RoundedRectangle(cornerRadius: 32))
-                            .shadow(color: .white.opacity(0.5), radius: 5, x: 0, y: 5)
+                            .shadow(color: colorScheme == .dark ? .white.opacity(0.5) : .black.opacity(0.5), radius: 5, x: 0, y: 2)
                         }
                     }
                     .scrollTargetLayout()
